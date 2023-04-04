@@ -1,3 +1,4 @@
+
 import math
 import nltk
 nltk.download('punkt')
@@ -7,14 +8,13 @@ from nltk.corpus import stopwords
 from collections import defaultdict
 from nltk.corpus import reuters
 import streamlit as st
-
 st.title("Information Retrieval System ")
-st.markdown("Sample Dataset 1000 sentences");
+st.markdown("Sample Dataset 1000 sentences")
 #------------------- ui ------------------------------
 from streamlit_lottie import st_lottie
 import requests
 # define function to load lottie animation from URL
-@st.cache(suppress_st_warning=True, allow_output_mutation=True)
+# @st.cache_resource(suppress_st_warning=True, allow_output_mutation=True)
 def load_lottie_url(url):
     r = requests.get(url)
     return r.json()
@@ -114,8 +114,15 @@ def perform_query(query, idf):
 
 results = perform_query(query, idf)
 # st.write(results, corpus) 
+baloon = False
+st.write("Results:")
 for document, score in results:
-    st.write("ans:")
-    st.write("Document:", document)
-    st.write("Score:", score)
-    st.write(corpus[document])
+    st.write("Document:", document,"  |  Score:", score)
+    st.write("Keywords: ", corpus[document])
+    st.write("--------------------------------------")
+    baloon = True
+if(query):
+    if(baloon) :
+        st.balloons()
+    else:
+        st.error("keyword not found in the given documents")
