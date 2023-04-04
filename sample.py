@@ -9,7 +9,6 @@ from nltk.corpus import reuters
 import streamlit as st
 
 st.title("Information Retrieval System")
-<iframe src="https://assets4.lottiefiles.com/packages/lf20_xbf1be8x.json"></iframe>
 query = st.text_input("Enter your query:")
 # query = "This is the first document."
 # Step 1: Collect the corpus
