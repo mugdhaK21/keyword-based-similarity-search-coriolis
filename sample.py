@@ -1,5 +1,4 @@
-import subprocess
-subprocess.call('pip install nltk', shell=True)
+%pip install nltk
 import math
 import nltk
 nltk.download('punkt')
