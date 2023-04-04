@@ -117,11 +117,16 @@ results = perform_query(query, idf)
 baloon = False
 
 if(query): st.write("Results:")
+rank=1
 for document, score in results:
     st.write("Document:", document,"  |  Score:", score)
-    st.write("Keywords: ", corpus[document])
-    st.write("--------------------------------------")
+    title = "Rank : "+ str(rank) +" | Keywords >"
+    with st.expander(title):
+        st.write(corpus[document])
+    st.write("-----------------------------------------")
     baloon = True
+    rank += 1
+
 if(query):
     if(baloon) :
         st.balloons()
