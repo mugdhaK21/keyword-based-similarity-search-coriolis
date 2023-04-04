@@ -7,6 +7,8 @@ from nltk.corpus import stopwords
 from collections import defaultdict
 from nltk.corpus import reuters
 import streamlit as st
+
+st.title("Information Retrieval System - (Sample Dataset 1000 sentences")
 #------------------- ui ------------------------------
 from streamlit_lottie import st_lottie
 import requests
@@ -21,7 +23,6 @@ lottie_json = load_lottie_url(url)
 # display lottie animation
 st_lottie(lottie_json)
 #-----------------------------------------------
-st.title("Information Retrieval System")
 query = st.text_input("Enter your query:")
 # query = "This is the first document."
 # Step 1: Collect the corpus
