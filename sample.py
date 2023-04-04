@@ -115,7 +115,8 @@ def perform_query(query, idf):
 results = perform_query(query, idf)
 # st.write(results, corpus) 
 baloon = False
-st.write("Results:")
+
+if(query): st.write("Results:")
 for document, score in results:
     st.write("Document:", document,"  |  Score:", score)
     st.write("Keywords: ", corpus[document])
