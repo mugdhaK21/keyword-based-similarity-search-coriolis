@@ -7,6 +7,19 @@ from nltk.corpus import stopwords
 from collections import defaultdict
 from nltk.corpus import reuters
 import streamlit as st
+#ui
+from streamlit_lottie import st_lottie
+import requests
+def load_lottie_url(url):
+    r = requests.get(url)
+    return r.json()
+
+#search animation
+# load lottie animation from URL
+url = "https://assets4.lottiefiles.com/packages/lf20_xbf1be8x.json"
+lottie_json = load_lottie_url(url)
+# display lottie animation
+st_lottie(lottie_json)
 
 st.title("Information Retrieval System")
 query = st.text_input("Enter your query:")
