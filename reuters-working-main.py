@@ -77,27 +77,6 @@ def calculate_document_length(document):
         length += tf_corpus[corpus.index(document)][word] * idf[word] ** 2
     return math.sqrt(length)
 
-document_lengths = [calculate_document_length(document) for document in corpus]
-
-# Step 6: Build the index
-index = defaultdict(list)
-for i, document in enumerate(corpus):
-    for word in set(document):
-        index[word].append((i, tf_corpus[i][word], idf[word]))
-
-# Step 7: Perform the query
-def perform_query(query, idf):
-    query = preprocess(query)
-    query_tf = calculate_tf(query)
-    query_idf = {word: idf[word] for word in query}
-    scores = defaultdict(float)
-    for word in query:
-        for document, tf, idf in index[word]:
-            scores[document] += query_tf[word] * tf * idf * query_idf[word]
-    for document in scores:
-        scores[document] /= document_lengths[document]
-    st.write(sorted(scores.items(), key=lambda x: x[1], reverse=True))
-    return sorted(scores.items(), key=lambda x: x[1], reverse=True)
 
 # Step 8: Rank the results
 # query = "This is the first document."
