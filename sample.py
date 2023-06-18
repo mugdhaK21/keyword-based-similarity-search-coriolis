@@ -9,7 +9,6 @@ from collections import defaultdict
 from nltk.corpus import reuters
 import streamlit as st
 st.title("Information Retrieval System ")
-st.markdown("Sample Dataset 1000 sentences")
 #------------------- ui ------------------------------
 from streamlit_lottie import st_lottie
 import requests
